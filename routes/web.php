@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Back\ComplaintController;
 use App\Http\Controllers\Back\HomeController;
+use App\Http\Controllers\Back\RoleController;
 use App\Http\Controllers\Front\FrontController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +23,10 @@ Route::get('/login', [AuthController::class, 'login']);
 // Back
 
 Route::get('/', [HomeController::class, 'index']);
+
+// Route::resource('user', UserController::class);
+Route::resource('role', RoleController::class);
+Route::resource('complaint', ComplaintController::class);
 
 // Front
 
