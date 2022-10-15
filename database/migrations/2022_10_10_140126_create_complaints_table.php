@@ -20,6 +20,8 @@ class CreateComplaintsTable extends Migration
             $table->unsignedInteger('product_id');
             $table->string('description');
             $table->string('status');
+            $table->string('start_date');
+            $table->string('end_date')->nullable();
             $table->timestamps();
         });
     }

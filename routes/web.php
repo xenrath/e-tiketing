@@ -5,6 +5,7 @@ use App\Http\Controllers\Back\ComplaintController;
 use App\Http\Controllers\Back\HomeController;
 use App\Http\Controllers\Back\RoleController;
 use App\Http\Controllers\Front\FrontController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,8 +27,14 @@ Route::get('/', [HomeController::class, 'index']);
 
 // Route::resource('user', UserController::class);
 Route::resource('role', RoleController::class);
+
 Route::resource('complaint', ComplaintController::class);
+Route::post('update-status', [ComplaintController::class, 'updateStatus']);
 
 // Front
 
 Route::get('/dashboard', [FrontController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

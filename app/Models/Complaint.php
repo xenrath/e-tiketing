@@ -9,12 +9,20 @@ class Complaint extends Model
 {
     use HasFactory;
 
-    protected $guard = [];
+    protected $fillable = [
+        'code',
+        'user_id',
+        'product_id',
+        'description',
+        'status',
+        'start_date',
+        'end_date'
+    ];
     
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     
     // public function bank()
     // {
